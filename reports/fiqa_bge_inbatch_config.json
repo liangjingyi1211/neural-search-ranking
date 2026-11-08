@@ -1,0 +1,32 @@
+{
+  "config": {
+    "seed": 42,
+    "model": "BAAI/bge-small-en-v1.5",
+    "dataset": "fiqa",
+    "train_split": "train",
+    "eval_split": "dev",
+    "method": "MNRL_inbatch",
+    "epochs": 1,
+    "batch_size": 8,
+    "gradient_accumulation_steps": 2,
+    "lr": 2e-05,
+    "warmup_ratio": 0.1,
+    "train_max_seq_length": 256,
+    "eval_max_seq_length": 512,
+    "fp16": true,
+    "top_k": 100,
+    "query_instruction": "",
+    "normalize_embeddings": true
+  },
+  "versions": {
+    "python": "3.13.16",
+    "torch": "2.14.1+cu130",
+    "sentence_transformers": "6.2.0",
+    "transformers": "5.22.1",
+    "datasets": "5.1.0",
+    "accelerate": "1.15.0",
+    "faiss": "1.15.1"
+  },
+  "train_pairs": 5489,
+  "train_seconds": 98.89200154900004
+}

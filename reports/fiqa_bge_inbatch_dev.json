@@ -1,0 +1,90 @@
+{
+  "dataset": "fiqa",
+  "split": "dev",
+  "model": "BAAI/bge-small-en-v1.5",
+  "method": "finetuned_MNRL_inbatch",
+  "seed": 42,
+  "train_queries": 5500,
+  "train_pairs": 5489,
+  "dev_queries": 500,
+  "corpus_size": 57638,
+  "config": {
+    "seed": 42,
+    "model": "BAAI/bge-small-en-v1.5",
+    "dataset": "fiqa",
+    "train_split": "train",
+    "eval_split": "dev",
+    "method": "MNRL_inbatch",
+    "epochs": 1,
+    "batch_size": 8,
+    "gradient_accumulation_steps": 2,
+    "lr": 2e-05,
+    "warmup_ratio": 0.1,
+    "train_max_seq_length": 256,
+    "eval_max_seq_length": 512,
+    "fp16": true,
+    "top_k": 100,
+    "query_instruction": "",
+    "normalize_embeddings": true
+  },
+  "versions": {
+    "python": "3.13.16",
+    "torch": "2.14.1+cu130",
+    "sentence_transformers": "6.2.0",
+    "transformers": "5.22.1",
+    "datasets": "5.1.0",
+    "accelerate": "1.15.0",
+    "faiss": "1.15.1"
+  },
+  "train_seconds": 98.89,
+  "corpus_encoding_seconds": 150.29,
+  "faiss_index_build_seconds": 0.07,
+  "baseline_source": "previous user-provided 02 run (manual reference)",
+  "baseline_metrics": {
+    "ndcg_10": 0.39916,
+    "recall_10": 0.46559,
+    "recall_100": 0.70287,
+    "mrr_10": 0.47566
+  },
+  "metrics": {
+    "ndcg_10": 0.39826,
+    "recall_10": 0.45061,
+    "recall_100": 0.71504,
+    "mrr_10": 0.48336
+  },
+  "comparison": [
+    {
+      "metric": "ndcg_10",
+      "pretrained": 0.39916,
+      "finetuned": 0.39826,
+      "absolute_delta": -0.0009,
+      "relative_change_pct": -0.23
+    },
+    {
+      "metric": "recall_10",
+      "pretrained": 0.46559,
+      "finetuned": 0.45061,
+      "absolute_delta": -0.01498,
+      "relative_change_pct": -3.22
+    },
+    {
+      "metric": "recall_100",
+      "pretrained": 0.70287,
+      "finetuned": 0.71504,
+      "absolute_delta": 0.01217,
+      "relative_change_pct": 1.73
+    },
+    {
+      "metric": "mrr_10",
+      "pretrained": 0.47566,
+      "finetuned": 0.48336,
+      "absolute_delta": 0.0077,
+      "relative_change_pct": 1.62
+    }
+  ],
+  "limitations": [
+    "FiQA qrels may be incomplete: in-batch negatives can contain false negatives",
+    "One seed and one epoch: more seeds and cross-domain tests pending",
+    "No hard-negative mining; trained with in-batch negatives only"
+  ]
+}
