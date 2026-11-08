@@ -218,3 +218,29 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# ===== Neural Search Project =====
+
+# Datasets
+data/
+
+# Model checkpoints
+checkpoints/
+*.pt
+*.pth
+*.safetensors
+
+# Hugging Face cache
+.cache/huggingface/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Environment variables and secrets
+.env
+.env.*
+!.env.example
+
+# Temporary logs
+*.log
+
